@@ -11,7 +11,9 @@ export const AuthProvider = ({ children }) => {
     return stored ? JSON.parse(stored) : null;
   });
 
-  const API = 'http://localhost:5000/api/auth';
+  const API = window.location.hostname === 'localhost' 
+  ? 'http://localhost:5000/api/auth' 
+  : 'https://real-time-chat-1uoq.onrender.com/api/auth';
 
   const register = async (username, password) => {
     const res = await axios.post(`${API}/register`, { username, password });
