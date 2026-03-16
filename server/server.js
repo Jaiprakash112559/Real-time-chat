@@ -16,8 +16,10 @@ app.use(cors({ origin: '*' }));
 
 const io = new Server(server, {
   cors: {
-    origin: '*',
-    methods: ['GET', 'POST']
+    // Replace '*' with your actual Netlify link
+    origin: ["https://realtimechat123.netlify.app", "http://localhost:3000"], 
+    methods: ['GET', 'POST'],
+    credentials: true
   }
 });
 
