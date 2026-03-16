@@ -4,7 +4,9 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const ROOMS = ['General', 'Tech Support', 'Random', 'Gaming', 'Music'];
-const SOCKET_URL = 'http://localhost:5000';
+const SOCKET_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:5000' 
+  : 'https://real-time-chat-1uoq.onrender.com';
 
 export default function Chat() {
   const { user, logout } = useAuth();
